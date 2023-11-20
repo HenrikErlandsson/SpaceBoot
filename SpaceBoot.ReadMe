@@ -1,0 +1,61 @@
+SpaceBoot
+
+
+What is it?
+A combination of the "Add44K" CLI command and functions from several previous classic utility boot blocks, but rewritten to work on all Amigas, and made unobtrusive and automatic by careful choices.
+
+It can make old and new releases compatible with old and new/expanded Amigas, and maximizes chip memory for file-based software distribution (as opposed to track-loaded or HDD install archives) as well as for creating programs, graphics, music, etc. using native applications.
+
+It also provides identical presentation on all Amiga configs (80 columns if desired on KS2.0+ which don’t necessarily heed DEVS:System-Configuration), and small details.
+
+It’s tested with modern expansions and less common cases, such as using a Gotek to boot from DF1 on supporting Kickstarts.
+
+
+Usage at disk boot
+Automatically, SpaceBoot will:
+- Turn off the audio filter
+- Disable 1 bitplane
+- Disable external drives
+- Color the background red if a Resident/Virus program is detected.
+- Color the background orange if an intermittent PAL/NTSC mismatch was detected on some A500 revisions with partial ECS chipset (KS1.3 bug). Reset to retry.
+
+…and then run the contents of the disk.
+
+Hold LMB (Left Mouse Button) to skip the bootblock code entirely, or RMB to enter the menu.
+
+
+Menu
+The marked title text indicates whether a resident virus (or program, such as the Early Boot menu of AmigaOS, or the resident program of an expansion) is in memory. This means that a resident virus can be masked by these normal functions of your hardware setup. Press LMB to remove resident viruses, leaving only resident programs.
+
+The background color is used as an indicator:
+Gray - normal home color for the menu.
+Blue - disk operation active.
+Purple - awaiting disk swap + RMB click.
+Red - disk write error.
+
+Press the desired menu option or Esc to continue automatic boot.
+
+F1 - install the bootblock on any disk that boots to CLI/WB. This automatically removes any bootblock viruses and puts a resident virus checker there, meaning that you can make all incoming disks safe to run. Do not write the bootblock to a track-loaded disk! And due to size constraints, there’s no check whether the disk is write-protected.
+
+F2 - copy a disk using the boot drive. Half of the disk is read and written + verified with two disk swaps. When the background changes to purple, swap disks and press RMB.
+
+F3 - turns the audio filter back on, if you prefer. Note that programs on the disk that have audio might control the filter, overriding this setting.
+
+F4 -  allocate all remaining Fastmem (will be freed at next reboot). This is a compatibility option that can make many programs work that assume that an Amiga only has Chipmem.
+
+
+Updates
+This software is meant as a finished product, not as a live repo where years can pass between updates, or hesitation or battles appear between which version, fork, or repo is the proper one. After all, its whole purpose is to provide the same functionality on any Amiga model.
+
+It adapts the 1 bitplane removal routine coded by Ross and shared on the English Amiga Board.
+
+It has been tested on 30+ configurations and several configurations including floppy emulators of 4 users so far, and I’ve spent 100+ hours of my spare time on just this part: testing and refining.
+
+SpaceBoot is intended to be "it".
+
+That said, SpaceBoot is now open-source and released in the wild. Please communicate wishes for changes, add to tested Amiga setups, and report bugs at:
+
+https://github.com/HenrikErlandsson/SpaceBoot
+
+I plan to dedicate quite a few more hours accommodating requests to try to make SpaceBoot "it".
+//Photon
