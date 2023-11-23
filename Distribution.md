@@ -1,0 +1,1 @@
+Copyright (c) 2023 Henrik Erlandsson notice is required - but the rights for the files in this repository (github.HenrikErlandsson.SpaceBoot) are managed by the LICENSE file, which is very permissive.
